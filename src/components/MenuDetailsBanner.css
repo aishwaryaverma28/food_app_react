@@ -1,0 +1,212 @@
+
+
+  .menu-details-container {
+    width: 100%;
+  }
+  
+  .menu-details-banner {
+    width: 100%;
+    background-color: black;
+    height: 250px;
+    padding: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  
+  .menu-details-banner-image {
+    width: 25%;
+    object-fit: cover;
+  }
+  
+  .menu-details-banner-info {
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+  }
+  
+ .menu-details-banner-title{
+  font-size: 2rem;
+ }
+  .menu-details-banner-cuisines,.menu-details-banner-location{
+    font-size: 1rem;
+  }
+  .menu-details-banner-down{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .menu-details-banner-offers {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .menu-details-banner-offer{
+    background-color: #f8f8f8;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+   /* .menu-details-banner-offer-info h1,h2{
+    font-size: .8rem;
+   } */
+  
+   .heading1{
+    font-size: .8rem;
+   }
+  
+  /*-----------------------------------------------MENU DETAILS*********************************/
+.menu-details-search{
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.menu-details-search input{
+  width: 35%;
+  padding: .5rem;
+  border-radius: 5px;
+  border-width:thick;
+}
+.menu-details-search input::placeholder{
+  color: rgb(72, 62, 62);
+  font-size: 1.2rem;
+}
+  .menu-details-item-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 30px auto;
+    padding: 20px;
+  }
+  
+  .menu-details-item {
+    width: 22%;
+    margin-bottom: 30px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .menu-details-item:hover{
+    box-shadow: 0px 0px 5px rgb(212, 210, 210);
+  }
+  
+  .menu-details-item-name {
+    margin: 10px 0;
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  .menu-details-item-image {
+    width: 80%;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+  
+  .menu-details-item-price {
+    margin: 10px 0;
+    color: #444;
+    font-size: 18px;
+  }
+  
+  .menu-details-item-add-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: auto;
+  }
+  .menu-details-item-add-btn:hover{
+    background-color: rgb(205, 29, 29);
+    box-shadow: 0px 5px 3px rgb(97, 97, 97);
+  }
+  .menu-details-item-add-btn:active{
+    background-color: #f44336;
+  }
+    
+  
+/****************************************************************************************************** */
+
+@media (min-width:0px) and (max-width: 767px) {
+  .menu-details-banner {
+    height: auto;
+    padding: 10%;
+    flex-direction: column;
+    text-align: center;
+  }
+  .menu-details-banner-image {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+  .menu-details-banner-info {
+    order: -1;
+    text-align: center;
+  }
+  .menu-details-banner-down {
+    flex-direction: column;
+    align-items: center;
+  }
+  .menu-details-search input {
+    width: 80%;
+  }
+  .menu-details-item-container {
+    justify-content: center;
+  }
+  .menu-details-item {
+    width: 45%;
+  }
+  .menu-details-banner-offers,.menu-details-banner-down{
+   display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1080px) {
+  .menu-details-banner {
+    height: 400px;
+    padding: 5%;
+  }
+  /* .menu-details-banner-image {
+    width: 25%;
+  } */
+  .menu-details-banner-info {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .menu-details-banner-offers {
+    justify-content: flex-end;
+  }
+  .menu-details-item-container {
+    justify-content: space-between;
+  }
+}
+
+.menu-details-item-added-btn {
+  background-color: rgb(17, 197, 17);
+  color: white;
+  padding: 5px;
+  border-radius:5px;
+}
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: green;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+
+}
+

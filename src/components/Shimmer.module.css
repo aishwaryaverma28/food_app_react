@@ -1,0 +1,42 @@
+.shimmerContainer{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 3rem;
+}
+
+.cardShimmer {
+  width: 22%;
+  height: 300px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.cardShimmerUp {
+  height: 150px;
+  width: 100%;
+  background-color: rgb(213, 211, 211);
+  border-radius: 10px;
+}
+
+.shimmerLineOne {
+  margin: 2rem 1rem;
+  height: 10px;
+  width: 30%;
+  background-color: rgb(213, 211, 211);
+}
+
+.shimmerLineTwo {
+  margin: 1rem 1rem;
+  height: 10px;
+  width: 60%;
+  background-color: rgb(213, 211, 211);
+}
+
+.shimmerLineThree {
+  margin: 1rem 1rem;
+  height: 10px;
+  width: 80%;
+  background-color: rgb(213, 211, 211);
+}

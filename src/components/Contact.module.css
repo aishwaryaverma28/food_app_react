@@ -1,0 +1,232 @@
+
+.contact_body{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: hsl(209, 61%, 16%);
+    line-height: 1.5;
+    font-size: 0.875rem;
+    padding: 2rem;
+    display: flex;
+    gap: 2rem;
+  }
+
+  .contact_h3,
+  .contact_email {
+    letter-spacing: 0.1rem;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+  }
+
+  .contact_h3 {
+    font-size: 2rem;
+  }
+  .contact_email {
+    font-size: 0.875rem;
+  }
+  .question_p {
+    margin-bottom: 1.25rem;
+    color:  hsl(210, 22%, 49%);
+  }
+
+
+
+  /* @media screen and (min-width: 800px) {
+    .contact_h3 {
+      font-size: 1.75rem;
+    }
+    .contact_email {
+      font-size: 1rem;
+    }
+    body {
+      font-size: 1rem;
+    }
+    .contact_h3,
+    .contact_email {
+      line-height: 1;
+    }
+  } */
+  /*  global classes */
+  
+  /* section */
+  /* .section {
+    width: 90vw;
+    margin: 0 auto;
+    max-width: 1170px;
+  } */
+  
+  /* @media screen and (min-width: 992px) {
+    .section {
+      width: 95vw;
+    }
+  } */
+  
+  /*
+  =============== 
+  Questions
+  ===============
+  */
+
+/* main {
+  min-height: 100vh; */
+  /* using flex because of better browser support */
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.container1 {
+  width: 100%;
+box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-radius:10px;
+    padding: 2.5rem 2rem;
+    max-width: 920px;
+    display: grid;
+    gap: 1rem 2rem;
+  }
+  .container h3 {
+    line-height: 1.2;
+    font-weight: 500;
+  }
+  /* @media screen and (min-width: 992px) {
+    .container {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+    }
+  } */
+  .question {
+    padding: 1rem 1.5rem;
+    border: 2px solid #eae6eb;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  .question_h4 {
+    text-transform: none;
+    font-size: 1.2rem;
+  }
+  .question_p {
+    color: hsl(209, 34%, 30%);
+    margin-bottom: 0;
+    margin-top: 0.5rem;
+  }
+  .question_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .question_header .question_h4 {
+    margin-bottom: 0;
+  }
+  .btn {
+    background: transparent;
+    border-color: transparent;
+    width: 2rem;
+    height: 2rem;
+    background: #eae6eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #b4345c;
+    cursor: pointer;
+    margin-left: 1rem;
+    align-self: center;
+    min-width: 2rem;
+    transition: all 0.4s linear;
+  }
+  .btn:hover{
+    transform: rotate(180deg);
+    background: #b4345c;
+    color: #eae6eb;
+  }
+
+.container2 {
+  width: 80%;
+  margin: 5rem auto;
+  margin-bottom: 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  padding: 2.5rem 2rem;
+  /* max-width: 920px; */
+  /* max-height: 37rem; */
+}
+.contact_form{
+    border: 2px soild red;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .contact_form input{
+    width: 100%;
+    /* height: 35px; */
+    padding: 6px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid rgb(220, 220, 220);
+  }
+  
+  .contact_form input :focus {
+      border: 2px solid rgba(0, 206, 150, 1);
+    }
+    .contact_form input:hover{
+    cursor: pointer;
+    }
+    .contact_form textarea{
+      min-width: 100%;
+      max-width: 100%;
+      max-height: 100px;
+      min-height: 100px;
+      padding: 7px;
+      outline: none;
+      border-radius: 5px;
+      border: 1px solid rgb(220, 220, 220);
+    }
+    .contact_form textarea :focus{
+      border: 2px solid rgba(0, 206, 150, 1);
+    }
+    .contact_form textarea:hover{
+      cursor: pointer;
+    }
+  
+    .contact_form label{
+      margin-top: 1rem;
+    }
+    .submit_btn{
+      margin-top: 1rem;
+      padding: 1rem;
+      cursor: pointer;
+      background: rgb(249, 105, 14);
+      color: white;
+      border: none;
+    }
+  .submit_btn:hover{
+    /* transform: scale(1.01); */
+    background-color: #9d0208;
+      /* box-shadow: 2px 4px 30px 7px #dc2f02; */
+      cursor: pointer;
+  }
+  .contact_email{
+    font-size: 1.2rem;
+    color: rgb(249, 105, 14);
+  }
+  
+  @media (min-width:0px) and (max-width:850px){
+    .contact_body{
+      flex-direction: column;
+    }
+  }
+
+  .popupEmail {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    /* transform: translate(-50%, -50%); */
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+  
+  }

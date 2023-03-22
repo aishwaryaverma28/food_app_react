@@ -1,0 +1,246 @@
+:root{
+    --bg-color: rgb(236,107,27);
+  }
+.cartPage{
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+.cartItemContainer{
+   box-shadow: 0px 0px 5px rgb(186, 183, 183);
+   position: relative;
+   width: 50%;
+   max-height: 73vh;
+   overflow-y: scroll;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+}
+.cartItemContainer::-webkit-scrollbar{
+    display: none;
+}
+.cartItemContainer h1{
+    background-color: var(--bg-color);
+    padding: 1rem;
+    text-align: center;
+    color: white;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    position: sticky;
+    top: 0;
+}
+.clearCart{
+    display: flex;
+    padding: .5rem 1rem;
+    justify-content: flex-end;
+}
+.clearCartBtn{
+    border: none;
+    outline: none;
+    background-color: rgb(212, 6, 6);
+    padding: .5rem 1rem;
+    border-radius: 25px;
+    color: white;
+}
+.cartDetailContainer{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+.cartDetails{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.cartDetails img{
+    width: 100px;
+}
+.leftCart{
+    width: 50%;
+    display: flex;
+    gap: 3rem;
+}
+.cartDetails h2{
+    font-size: 1rem;
+    font-weight: bold;
+}
+.quantityContainer{
+    border: 1px solid green;
+    border-radius: 5px;
+    width: 6vw;
+    height: 2.5rem;
+    padding: .5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.quantityContainer button{
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1rem;
+}
+ .cartDetails h4{
+    font-size: 1rem;
+}
+.emptycart{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+.emptyImg{
+    width: 400px;
+    height: 200px;
+    
+}
+.restaurantNearBtn{
+    padding: .5rem 2rem;
+    border: none;
+    outline: none;
+    background-color: var(--bg-color);
+    color: white;
+    font-weight: bold;
+}
+.restaurantNearBtn:hover{
+    background-color: orange;
+}
+.cartSummary{
+border-top: 1px solid black;
+padding: .5rem 2rem;
+display: flex;
+justify-content: flex-end;
+gap: 2rem;
+align-items: center;
+background-color: white;
+}
+.paymentBtnContainer{
+    background-color: white;
+    box-shadow: 0px 0px 5px black;
+    display: flex;
+    position: sticky;
+    bottom: 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+.paymentBtnContainer p{
+    font-size: 1.2rem;
+}
+.paymentBtnContainer b{
+    color: rgb(236,107,27);
+}
+.paymentBtnContainer button{
+    border: none;
+    outline: none;
+    background-color: rgb(236,107,27);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.paymentBtnContainer button:hover{
+    box-shadow: 0px 5px 5px black;
+    background-color: orange;
+}
+.paymentBtnContainer button:active{
+    background-color: var(--bg-color);
+}
+.loginAlert{
+position: absolute;
+top: 0rem;
+left: 38%;
+width: 25%;
+padding: 1rem;
+display: flex;
+flex-direction: column;
+color: brown;
+justify-content: space-between;
+background-color: white;
+border-radius: 10px;
+box-shadow: 0px 0px 5px black;
+}
+.loginAlert h1{
+    font-size: 1.2rem;
+    text-align: center;
+}
+.closeIcon{
+   display: flex;
+    justify-content: flex-end;
+    font-size: 1.3rem;
+}
+.btnContainer{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+.loginAlert button{
+   padding: .5rem 1.5rem;
+   border-radius: 10px;
+   border: none;
+   outline: none;
+   background-image: linear-gradient(to right, green, white, rgb(236,107,27));
+   color: white;
+   font-weight: bold;
+   font-size: 1.3rem;
+   background-size: 400% 100%;
+   transition: all 0.5s ease-in-out;
+   animation: blink 1s linear infinite;
+}
+@keyframes blink {
+    0%{opacity: 0;}
+    50%{opacity: .5;}
+    100%{opacity: 1;}
+    
+  }
+.loginAlert button:hover{
+    background-position: 100% 0%;
+}
+.loginAlert img{
+    margin: 1rem auto;
+    width: 100px;
+}
+
+
+/****************************************************************************************************** */
+
+@media (max-width: 1100px) {
+    .cartItemContainer {
+      width: 80%;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    .leftCart {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .quantityContainer {
+      width: 8vw;
+    }
+    .emptyImg {
+      width: 90%;
+      height: auto;
+    }
+    .paymentBtnContainer {
+      padding: 1rem 0;
+      flex-direction: column;
+    }
+    .paymentBtnContainer button {
+      width: 80%;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+    .loginAlert {
+      width: 80%;
+      left: 10%;
+    }
+  }
+  
+
+

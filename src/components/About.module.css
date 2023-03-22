@@ -1,0 +1,124 @@
+.about_heading {
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(246, 61, 101);
+    margin: 1.5rem;
+}
+
+.about_us {
+    margin: 2rem;
+}
+
+.About_h3,
+.about_heading2 {
+    color: seagreen;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: xx-large;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.about_content1,
+.about_content {
+    text-align: center;
+    padding: 0.5rem;
+    font-size: large;
+}
+
+.about_content1 {
+    color: orange;
+}
+
+.About_box {
+    display: flex;
+    gap: 2rem;
+    margin: 0% 7%;
+}
+
+.box1_banner {
+    width: 30%;
+    border-radius: 5px;
+    /* height: 20rem; */
+}
+.box1_banner:hover{
+    box-shadow: 0px 0px 5px black;
+}
+.about_para {
+    font-size: large;
+    font-weight: 500;
+
+}
+
+.about_images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 1rem;
+    margin: 0% 7%;
+}
+
+.about_images img {
+    width: 10rem;
+    border-radius: 20px;
+}
+
+.about_arrow img {
+    max-width: 1rem;
+}
+.about_downarrow{
+    height: 150px;
+    display: none;
+}
+.about_ending {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.about_content1,
+.about_content {
+    font-size: larger;
+    font-weight: 600;
+}
+
+.ending_img {
+    width: 5rem;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffa880), to(rgb(236,107,27)));
+    box-shadow: inset 2px 2px 2px rgba(255, 255, 255, 0.25), inset -2px -2px -2px rgba(0, 0, 0, 0.25);
+}
+
+/*************************************************************************************************************** */
+
+@media (max-width: 999px) {
+    .About_box{
+        flex-direction: column;
+    }
+    .box1_banner {
+        width: 90%;
+        object-fit: cover;
+  }
+  .about_images{
+    flex-direction: column;
+    align-items: center;
+  }
+  .about_downarrow{
+    display: block;
+}
+.about_arrow {
+   display: none;
+}
+.about_images img {
+    width: 20rem;
+    border-radius: 20px;
+}
+}
+  
