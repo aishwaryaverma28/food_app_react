@@ -9,7 +9,7 @@ import Cart from "./components/Cart";
 import Error from "./components/Error";
 import "./App.css";
 import Shimmer from "./components/Shimmer";
-import PaymentCard from './components/PaymentCard';
+// import PaymentCard from './components/PaymentCard';
 import LastPage from "./components/LastPage";
 const MenuDetails = lazy(()=>import("./components/MenuDetails"));
 
@@ -37,10 +37,10 @@ const appRouter = createBrowserRouter([
         element: <Cart/>,
      
       },
-      {
-        path:"payment",
-        element:<PaymentCard/>
-      },
+      // {
+      //   path:"payment",
+      //   element:<PaymentCard/>
+      // },
       {
         path: "/restaurant/:id",
         element: <Suspense fallback = {<Shimmer/>}><MenuDetails/></Suspense>
