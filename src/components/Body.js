@@ -11,27 +11,27 @@ import Filter from './Filter';
 import SearchCity from './SearchCity';
 
 function Body() {
-  const [coordinates, setCoordinates] = useState({ lat: 19.159014, lng: 72.9985686 });
+  const [coordinates, setCoordinates] = useState({ lat: '10.5270099', lng: '76.214621' });
   // const [restoListUrl, setRestoListUrl] = useState(`${RESTO_LIST_URL}?lat=${coordinates.lat}&lng=${coordinates.lng}&offset=15&sortBy=RELEVANCE&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING`);
   const [restoListUrl, setRestoListUrl] = useState(`http://localhost:3001/api/restaurants?lat=${coordinates.lat}&lng=${coordinates.lng}&page_type=DESKTOP_WEB_LISTING`);
   const { data, isPending, error } = useFetch(restoListUrl);
   const [showShimmer, setShowShimmer] = useState(true);
   const [restaurantList, setRestaurantList] = useState([]);
-  // const [offset, setOffset] = useState(15);
+  const [offset, setOffset] = useState(15);
   const [sortBy, setSortBy] = useState('RELEVANCE');
-
-  // useEffect(() => {
-  //   if (data?.data?.cards) {
-  //     setRestaurantList(prevList => [...prevList, ...data?.data?.cards]);
+console.log(data?.data?.cards)
+  useEffect(() => {
+    if (data?.data?.cards) {
+      setRestaurantList(prevList => [...prevList, ...data?.data?.cards]);
       
-  //   }
-  // }, [data]);
-
+    }
+  }, [data]);
+console.log(coordinates)
 
   useEffect(() => {
     setRestaurantList([]);
-    // setOffset(15); 
-    //setRestoListUrl(`${RESTO_LIST_URL}?lat=${coordinates.lat}&lng=${coordinates.lng}&offset=15&sortBy=RELEVANCE&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING`);
+    setOffset(15); 
+    setRestoListUrl(`http://localhost:3001/api/restaurants?lat=${coordinates.lat}&lng=${coordinates.lng}&offset=15&sortBy=RELEVANCE&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING`);
    
   }, [coordinates]);
 
@@ -46,7 +46,7 @@ function Body() {
   //         console.log("offset block")
   //         setOffset(prevOffset => prevOffset + 15);
   //         setRestoListUrl(
-  //           `${RESTO_LIST_URL}?lat=${coordinates.lat}&lng=${coordinates.lng}&offset=${offset}&sortBy=${sortBy}&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING`
+  //           `http://localhost:3001/api/restaurants?lat=${coordinates.lat}&lng=${coordinates.lng}&offset=${offset}&sortBy=${sortBy}&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING`
   //         );
          
   //       }
@@ -62,6 +62,7 @@ function Body() {
       setShowShimmer(false);
       setRestaurantList(data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
+    console.log("check",data)
     console.log("6444",data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
   }, [data]);
 
@@ -69,13 +70,13 @@ function Body() {
   return (
     <>
       <Slider />
-      {/* <SearchCity setCoordinates={setCoordinates} setRestoListUrl={setRestoListUrl} setRestaurantList={setRestaurantList} offset={offset} setOffset={setOffset}  /> */}
-      {/* <Filter setRestoListUrl={setRestoListUrl} setRestaurantList={setRestaurantList} coordinates={coordinates} setSortBy={setSortBy} offset={offset} setOffset={setOffset}/> */}
+       <SearchCity setCoordinates={setCoordinates} setRestoListUrl={setRestoListUrl} setRestaurantList={setRestaurantList} offset={offset} setOffset={setOffset}  /> 
+      <Filter setRestoListUrl={setRestoListUrl} setRestaurantList={setRestaurantList} coordinates={coordinates} setSortBy={setSortBy} offset={offset} setOffset={setOffset}/>
       <div className={styles.cards}>
         {error && <Error error={error} />}
         {restaurantList.map((restaurant, index) => (
           <Link
-            to={'/restaurant/' + restaurant?.data?.data?.id}
+            to={'/restaurant/' + restaurant?.info?.id}
             key={restaurant?.info?.id}
             className={styles.card}
           >

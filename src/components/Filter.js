@@ -10,7 +10,7 @@ function Filter({ setRestoListUrl, setRestaurantList, coordinates, setSortBy,off
     setSortBy(sortBy);
     setOffset(15)
     setRestoListUrl(
-      `${RESTO_LIST_URL}?lat=${coordinates.lat}&lng=${coordinates.lng}&offset=${offset}&sortBy=${sortBy}&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING`
+      `http://localhost:3001/api/restaurants?lat=${coordinates.lat}&lng=${coordinates.lng}&offset=${offset}&sortBy=${sortBy}&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING`
     );
   };
 

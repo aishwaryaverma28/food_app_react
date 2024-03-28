@@ -13,7 +13,9 @@ import { addItem } from '../utils/cartSlice';
 
 function MenuDetails() {
   const { id } = useParams();
-  const { data, isPending, error } = useFetch(MENU_LIST_URL + id);
+  // const { data, isPending, error } = useFetch(MENU_LIST_URL + id); 
+
+   const { data, isPending, error } = useFetch(`http://localhost:3001/api/restaurants?page-type=REGULAR_MENU&complete-menu=true&lat=${10.5270099}&lng=${76.214621}&submitAction=ENTER&restaurantId=${id}`);
   const restoData = data?.data;
   const [searchTerm, setSearchTerm] = useState('');
   const [addedItems, setAddedItems] = useState([]);
