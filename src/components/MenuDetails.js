@@ -21,7 +21,8 @@ function MenuDetails() {
   const [addedItems, setAddedItems] = useState([]);
   const [showSuccess, setShowSuccess] = useState(false);
 
-  console.log(data?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards[0]?.card?.info);
+  console.log(data?.data?.cards);
+  // ?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards[0]?.card?.info
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
@@ -29,11 +30,7 @@ function MenuDetails() {
   const filteredItems = ((data?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards)|| []).filter((item) =>
   item?.card?.info?.name.toLowerCase().includes(searchTerm.toLowerCase())
 );
-console.log(filteredItems);
-  
-
-
-
+// console.log(filteredItems);
   const dispatch = useDispatch();
   const addFoodItem = (item) => {
 
@@ -64,10 +61,10 @@ console.log(filteredItems);
       {data && (
         <>
           <div className="menu-details-banner">
-            <img className="menu-details-banner-image" src={IMG_BASE_URL + restoData?.cards[0]?.card?.card?.info?.cloudinaryImageId} alt={restoData.name} />
+            <img className="menu-details-banner-image" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + restoData?.cards[0]?.card?.card?.imageGridCards?.info[0]?.imageId} alt={restoData.name} />
 ​
             <div className="menu-details-banner-info">
-              <h1 className="menu-details-banner-title">{restoData?.cards[0]?.card?.card?.info?.name}</h1>
+              <h1 className="menu-details-banner-title">{restoData?.cards[2]?.card?.card?.title}</h1>
               <h2 className="menu-details-banner-cuisines">{restoData?.cards[0]?.card?.card?.info?.cuisines.join(', ')}</h2>
               <h2 className="menu-details-banner-location">{restoData?.cards[0]?.card?.card?.info?.city}, {restoData?.cards[0]?.card?.card?.info?.areaName}</h2>
 ​
@@ -82,7 +79,7 @@ console.log(filteredItems);
               </div>
             </div>
 
-            <div className="menu-details-banner-offers">
+            {/* <div className="menu-details-banner-offers">
               {restoData?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.offers.slice(0, 2).map((offer) => (
                 <div key={offer.id} className="menu-details-banner-offer">
                   <img className="menu-details-banner-offer-image" src={discountLogo} alt="Offer" />
@@ -93,7 +90,7 @@ console.log(filteredItems);
                   </div>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
 ​
 ​
