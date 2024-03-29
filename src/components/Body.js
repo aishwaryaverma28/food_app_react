@@ -19,14 +19,14 @@ function Body() {
   const [restaurantList, setRestaurantList] = useState([]);
   const [offset, setOffset] = useState(15);
   const [sortBy, setSortBy] = useState('RELEVANCE');
-console.log(data?.data?.cards)
+// console.log(data?.data?.cards)
   useEffect(() => {
     if (data?.data?.cards) {
       setRestaurantList(prevList => [...prevList, ...data?.data?.cards]);
       
     }
   }, [data]);
-console.log(coordinates)
+// console.log(coordinates)
 
   useEffect(() => {
     setRestaurantList([]);
@@ -62,11 +62,9 @@ console.log(coordinates)
       setShowShimmer(false);
       setRestaurantList(data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
-    console.log("check",data)
-    console.log("6444",data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    // console.log("check",data)
+    // console.log("6444",data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
   }, [data]);
-
-  console.log(restaurantList);
   return (
     <>
       <Slider />

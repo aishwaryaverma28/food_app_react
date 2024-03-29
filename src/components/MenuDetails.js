@@ -15,19 +15,18 @@ function MenuDetails() {
   const { id } = useParams();
   // const { data, isPending, error } = useFetch(MENU_LIST_URL + id); 
 
-   const { data, isPending, error } = useFetch(`http://localhost:3001/api/restaurants?page-type=REGULAR_MENU&complete-menu=true&lat=${10.5270099}&lng=${76.214621}&submitAction=ENTER&restaurantId=${id}`);
+  const { data, isPending, error } = useFetch(`http://localhost:3001/api/menu?page-type=REGULAR_MENU&complete-menu=true&lat=19.159014&lng=72.9985686&submitAction=ENTER&restaurantId=${id}`);
   const restoData = data?.data;
   const [searchTerm, setSearchTerm] = useState('');
   const [addedItems, setAddedItems] = useState([]);
   const [showSuccess, setShowSuccess] = useState(false);
 
-  console.log(data?.data?.cards);
-  // ?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards[0]?.card?.info
+  console.log(data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories);
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  const filteredItems = ((data?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards)|| []).filter((item) =>
+  const filteredItems = ((data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards)|| []).filter((item) =>
   item?.card?.info?.name.toLowerCase().includes(searchTerm.toLowerCase())
 );
 // console.log(filteredItems);
@@ -61,26 +60,26 @@ function MenuDetails() {
       {data && (
         <>
           <div className="menu-details-banner">
-            <img className="menu-details-banner-image" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + restoData?.cards[0]?.card?.card?.imageGridCards?.info[0]?.imageId} alt={restoData.name} />
+            <img className="menu-details-banner-image" src={IMG_BASE_URL + restoData?.cards[2]?.card?.card?.info?.cloudinaryImageId} alt={restoData.name} />
 ​
             <div className="menu-details-banner-info">
-              <h1 className="menu-details-banner-title">{restoData?.cards[2]?.card?.card?.title}</h1>
-              <h2 className="menu-details-banner-cuisines">{restoData?.cards[0]?.card?.card?.info?.cuisines.join(', ')}</h2>
-              <h2 className="menu-details-banner-location">{restoData?.cards[0]?.card?.card?.info?.city}, {restoData?.cards[0]?.card?.card?.info?.areaName}</h2>
+              <h1 className="menu-details-banner-title">{restoData?.cards[0]?.card?.card?.text}</h1>
+              <h2 className="menu-details-banner-cuisines">{restoData?.cards[2]?.card?.card?.info?.cuisines.join(', ')}</h2>
+              <h2 className="menu-details-banner-location">{restoData?.cards[2]?.card?.card?.info?.city}, {restoData?.cards[0]?.card?.card?.info?.areaName}</h2>
 ​
               <div className="menu-details-banner-down">
                 <div className="menu-details-banner-down-content">
-                  <p><i class="fa-solid fa-star" style={{ color: "white", fontSize: ".8rem", marginRight: ".3rem" }}></i>{restoData?.cards[0]?.card?.card?.info?.avgRating}</p>
+                  <p><i class="fa-solid fa-star" style={{ color: "white", fontSize: ".8rem", marginRight: ".3rem" }}></i>{restoData?.cards[2]?.card?.card?.info?.avgRating}</p>
                 </div>
                 <div style={{ color: "gray" }}>|</div>
                 <div className="menu-details-banner-down-content">
-                  <p>{restoData?.cards[0]?.card?.card?.info?.costForTwoMessage}</p>
+                  <p>{restoData?.cards[2]?.card?.card?.info?.costForTwoMessage}</p>
                 </div>
               </div>
             </div>
 
-            {/* <div className="menu-details-banner-offers">
-              {restoData?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.offers.slice(0, 2).map((offer) => (
+            <div className="menu-details-banner-offers">
+              {restoData?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.offers.slice(0, 2).map((offer) => (
                 <div key={offer.id} className="menu-details-banner-offer">
                   <img className="menu-details-banner-offer-image" src={discountLogo} alt="Offer" />
                   <div className="menu-details-banner-offer-info">
@@ -90,7 +89,7 @@ function MenuDetails() {
                   </div>
                 </div>
               ))}
-            </div> */}
+            </div>
           </div>
 ​
 ​
@@ -105,7 +104,6 @@ function MenuDetails() {
           </div>
 
           <div className='menu-details-item-container'>
-            {/* {(data?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards).map((item) => { */}
             {filteredItems.map((item) => {
               const itemImg = item?.card?.info?.imageId  ? IMG_BASE_URL + item?.card?.info?.imageId : foodPlaceholder;
               return (
