@@ -20,13 +20,13 @@ function MenuDetails() {
   const [searchTerm, setSearchTerm] = useState('');
   const [addedItems, setAddedItems] = useState([]);
   const [showSuccess, setShowSuccess] = useState(false);
-
-  console.log(data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories);
+  console.log("24",data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards)
+  // ?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  const filteredItems = ((data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories[0]?.itemCards)|| []).filter((item) =>
+  const filteredItems = ((data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards)|| []).filter((item) =>
   item?.card?.info?.name.toLowerCase().includes(searchTerm.toLowerCase())
 );
 // console.log(filteredItems);
