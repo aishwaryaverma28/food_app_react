@@ -83,11 +83,11 @@ export default function Cart() {
             </div>
 
             {loginAlert && <div className={styles.loginAlert}>
-                <div className={styles.closeIcon}><i class="fa-solid fa-xmark" onClick={()=>setLoginAlert(false)}></i></div>
+                <div className={styles.closeIcon}><i className="fa-solid fa-xmark" onClick={()=>setLoginAlert(false)}></i></div>
                  <h1> Please <button onClick={handleModal}>Login</button> To Continue </h1>
                </div>}
             {cartEmptyAlert && <div className={styles.loginAlert}>
-                <div className={styles.closeIcon}><i class="fa-solid fa-xmark" onClick={()=>setCartEmptyAlert(false)}></i></div>
+                <div className={styles.closeIcon}><i className="fa-solid fa-xmark" onClick={()=>setCartEmptyAlert(false)}></i></div>
                  <h1 style={{fontSize:"1.5rem"}}>Ooppssss!!! Your Cart is Empty </h1>
                  <img src={cartEmpty1} alt="cartEmpty" />
                </div>}

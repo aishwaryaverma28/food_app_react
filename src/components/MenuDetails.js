@@ -6,7 +6,7 @@ import { IMG_BASE_URL } from '../utils/constants';
 import discountLogo from '../assets/discount.png';
 import Shimmer from './Shimmer';
 import foodPlaceholder from '../assets/restaurant.png';
-
+import styles from "./RestaurantCard.module.css";
 import "./MenuDetailsBanner.css"
 import { useDispatch } from 'react-redux';
 import { addItem } from '../utils/cartSlice';
@@ -20,16 +20,16 @@ function MenuDetails() {
   const [searchTerm, setSearchTerm] = useState('');
   const [addedItems, setAddedItems] = useState([]);
   const [showSuccess, setShowSuccess] = useState(false);
-  console.log("24",data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards)
+  console.log("24", data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards)
   // ?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  const filteredItems = ((data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards)|| []).filter((item) =>
-  item?.card?.info?.name.toLowerCase().includes(searchTerm.toLowerCase())
-);
-// console.log(filteredItems);
+  const filteredItems = ((data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards) || []).filter((item) =>
+    item?.card?.info?.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+  // console.log(filteredItems);
   const dispatch = useDispatch();
   const addFoodItem = (item) => {
 
@@ -42,6 +42,9 @@ function MenuDetails() {
     return addedItems.includes(itemId);
   };
   useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, []);
+  useEffect(() => {
     let timerId;
     if (showSuccess) {
       timerId = setTimeout(() => {
@@ -52,7 +55,7 @@ function MenuDetails() {
       clearTimeout(timerId);
     };
   }, [showSuccess]);
-
+  let random = (Math.random() * (5 - 3) + 3).toFixed(1);
   return (
     <div className="menu-details-container">
       {error && <p>{error}</p>}
@@ -61,15 +64,16 @@ function MenuDetails() {
         <>
           <div className="menu-details-banner">
             <img className="menu-details-banner-image" src={IMG_BASE_URL + restoData?.cards[2]?.card?.card?.info?.cloudinaryImageId} alt={restoData.name} />
-​
+
             <div className="menu-details-banner-info">
               <h1 className="menu-details-banner-title">{restoData?.cards[0]?.card?.card?.text}</h1>
               <h2 className="menu-details-banner-cuisines">{restoData?.cards[2]?.card?.card?.info?.cuisines.join(', ')}</h2>
               <h2 className="menu-details-banner-location">{restoData?.cards[2]?.card?.card?.info?.city}, {restoData?.cards[0]?.card?.card?.info?.areaName}</h2>
-​
+
               <div className="menu-details-banner-down">
                 <div className="menu-details-banner-down-content">
-                  <p><i class="fa-solid fa-star" style={{ color: "white", fontSize: ".8rem", marginRight: ".3rem" }}></i>{restoData?.cards[2]?.card?.card?.info?.avgRating}</p>
+                  {/* <p><i class="fa-solid fa-star" style={{ color: "white", fontSize: ".8rem", marginRight: ".3rem" }}></i>{restoData?.cards[2]?.card?.card?.info?.avgRating}</p> */}
+                  <p className={(restoData?.cards[2]?.card?.card?.info?.avgRating > 4 || random > 4) ? styles.infoItemTop : styles.infoItemPoor}><i className="fa-solid fa-star" style={{ color: "white", fontSize: ".7rem" }}></i> {(restoData?.cards[2]?.card?.card?.info?.avgRating > 4) ? restoData?.cards[2]?.card?.card?.info?.avgRating : random}</p>
                 </div>
                 <div style={{ color: "gray" }}>|</div>
                 <div className="menu-details-banner-down-content">
@@ -91,8 +95,8 @@ function MenuDetails() {
               ))}
             </div>
           </div>
-​
-​
+
+
 
           <div className="menu-details-search">
             <input
@@ -105,7 +109,7 @@ function MenuDetails() {
 
           <div className='menu-details-item-container'>
             {filteredItems.map((item) => {
-              const itemImg = item?.card?.info?.imageId  ? IMG_BASE_URL + item?.card?.info?.imageId : foodPlaceholder;
+              const itemImg = item?.card?.info?.imageId ? IMG_BASE_URL + item?.card?.info?.imageId : foodPlaceholder;
               return (
                 <div key={item?.card?.info?.id} className="menu-details-item">
                   <h2 className="menu-details-item-name heading1">{item?.card?.info?.name}</h2>
@@ -118,10 +122,10 @@ function MenuDetails() {
             {showSuccess && <div className="popup">
               Item added successfully!
             </div>}
-​
-          </div> 
-        
-​
+
+          </div>
+
+
         </>
       )}
     </div>
