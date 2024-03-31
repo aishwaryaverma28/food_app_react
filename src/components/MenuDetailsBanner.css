@@ -18,6 +18,7 @@
   .menu-details-banner-image {
     width: 25%;
     object-fit: cover;
+    height: 125%;
   }
   
   .menu-details-banner-info {

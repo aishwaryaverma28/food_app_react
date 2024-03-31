@@ -4,6 +4,7 @@ import styles from "./RestaurantCard.module.css"
 
 function RestaurantCard(restaurant) {
    let random = (Math.random()* (5 - 3)+3 ).toFixed(1);
+   console.log(restaurant)
   return (
    
     <div>
@@ -14,10 +15,14 @@ function RestaurantCard(restaurant) {
         <h6 className={styles.area}>{restaurant?.restaurant?.areaName}</h6>
         <div className={styles.info}>
           <h4 className={styles.infoItem}>{restaurant?.restaurant?.costForTwo}</h4>
-          <h5 className={(restaurant?.restaurant?.avgRating>4 || random>4)? styles.infoItemTop : styles.infoItemPoor}><i class="fa-solid fa-star" style={{color:"white",fontSize:".7rem"}}></i> {(restaurant?.restaurant?.avgRating>4)?restaurant?.restaurant?.avgRating:random}</h5>
+          <h5 className={(restaurant?.restaurant?.avgRating>4 || random>4)? styles.infoItemTop : styles.infoItemPoor}><i className="fa-solid fa-star" style={{color:"white",fontSize:".7rem"}}></i> {(restaurant?.restaurant?.avgRating>4)?restaurant?.restaurant?.avgRating:random}</h5>
           <h5 className={styles.infoItem}>{restaurant?.restaurant?.isOpen ? "Open": "Closed"} </h5>
+         
           <h5>{}</h5>
         </div>
+        <div className={styles.info}>
+        <h5 className={styles.infoItem}>{restaurant?.restaurant?.sla?.slaString}</h5>
+          </div>
       </div>
     </div>
    

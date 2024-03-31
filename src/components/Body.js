@@ -22,9 +22,9 @@ function Body() {
 // console.log(data?.data?.cards)
   useEffect(() => {
     if (data?.data?.cards) {
-      setRestaurantList(prevList => [...prevList, ...data?.data?.cards]);
-      
+      setRestaurantList(prevList => [...prevList, ...data?.data?.cards]);     
     }
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [data]);
 // console.log(coordinates)
 

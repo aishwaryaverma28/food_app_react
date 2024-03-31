@@ -53,20 +53,20 @@ export default function Header() {
                     
                 </ul>
             </div>
-            <i class="fa-solid fa-bars" onClick={handleClickSidebar}></i>
+            <i className="fa-solid fa-bars" onClick={handleClickSidebar} style={{cursor:"pointer"}}></i>
 
             <nav className={isOpenSidebar ? 'sidebar_nav_menu active' : 'sidebar_nav_menu'}>
                 <ul className='sidebar_nav_menu_items'>
                     <li className='sidebar_close_toggle' onClick={handleClickSidebar}>
-                        <i class="fa-solid fa-xmark"></i>
+                        <i className="fa-solid fa-xmark"></i>
                     </li>
 
                     
                     <ul className="sidebar_item_container">
-                        <Link to="/" className="sidebar_nav_items"> <li> <i class="fa-solid fa-house"></i> Home  </li> </Link>
-                        <Link to="/about" className="sidebar_nav_items"><li><i class="fa-solid fa-circle-info"></i> About  </li></Link>
-                        <Link to="/contact" className="sidebar_nav_items"> <li><i class="fa-solid fa-phone"></i> Contact </li></Link>
-                        <Link to="/cart" className="sidebar_nav_items cart"> <li><i class="fa-solid fa-cart-shopping"></i> Cart <span className="cart_digit"> {totalQuantity}</span></li></Link>
+                        <Link to="/" className="sidebar_nav_items"> <li> <i className="fa-solid fa-house"></i> Home  </li> </Link>
+                        <Link to="/about" className="sidebar_nav_items"><li><i className="fa-solid fa-circle-info"></i> About  </li></Link>
+                        <Link to="/contact" className="sidebar_nav_items"> <li><i className="fa-solid fa-phone"></i> Contact </li></Link>
+                        <Link to="/cart" className="sidebar_nav_items cart"> <li><i className="fa-solid fa-cart-shopping"></i> Cart <span className="cart_digit"> {totalQuantity}</span></li></Link>
                         {isLoggedin? <button className="sidebar_nav_items nav_btn" onClick={handleToggle}>Logout <span style={{fontSize:".7rem",background:"transparent",border:"none"}}>{isOnline? "🟢" : "🔴"}</span> </button> : <button className="sidebar_nav_items nav_btn" onClick={handleSideModal}>Login <span style={{fontSize:".7rem",background:"transparent",border:"none"}}>{isOnline? "🟢" : "🔴"}</span></button> }
                     
                     </ul>
