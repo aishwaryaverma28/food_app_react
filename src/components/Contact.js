@@ -54,7 +54,7 @@ function Contact() {
         </section>
       </div>
 
-      <div className={styles.container2}>
+      {/* <div className={styles.container2}>
         <h4 className={styles.contact_email}>Feel Free To Connect With us</h4>
         <form ref={form} onSubmit={sendEmail} className={styles.contact_form}>
           <label>Name</label>
@@ -68,7 +68,7 @@ function Contact() {
         {showSuccess && <div className={styles.popupEmail}>
               Email Sent Successfully!
             </div>}
-      </div>
+      </div> */}
       
     </div>
   );
