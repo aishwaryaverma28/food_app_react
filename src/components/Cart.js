@@ -7,6 +7,7 @@ import { AppContext } from "../App";
 import cartEmpty1 from "../assets/cartEmpty1.png";
 import empty1 from "../assets/empty1.png";
 import {useNavigate,Link} from "react-router-dom";
+import cuisineCompass from "../assets/cuisineCompass.png";
 
 export default function Cart() {
     const dispatch = useDispatch();
@@ -32,20 +33,69 @@ export default function Cart() {
       setIsModalOpen(true);
       setLoginAlert(false);
     }
+    const loadScript = (src) => {
+        return new Promise((resolve) => {
+            const script = document.createElement("script")
+            script.src = src;
 
-    function handleCheck(){
+            script.onload = () => {
+                resolve(true);
+            }
+             script.onerror = () => {
+                resolve(false);
+             }
+             document.body.appendChild(script);
+        })
+    }
+    function handleCheck(amount){
         if(user === "Guest"){
-        //    console.log(user);
            setLoginAlert(true);
         }else{
             if(cartItems.length===0){
                 setCartEmptyAlert(true);
             }else{
                 //alert("welcome to payment page");
-                navigate("/payment");
+                // navigate("/payment");
+                displayRazorpay(amount)
             }
            
         }
+    }
+    const displayRazorpay = async (amount) => {
+        const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js")
+        if(!res){
+            alert("you are offline");
+            return;
+        }
+        const options = {
+            key: "rzp_test_snmZWoQQmy7yUq",
+
+            name: "Cuisine Compass",
+            currency: "INR",
+            amount: amount * 100,
+            description: "Test Transaction",
+            image: cuisineCompass,
+            handler: function (response) {
+                // alert(response.razorpay_payment_id);
+                //   alert(response.razorpay_order_id);
+                //   alert(response.razorpay_signature);
+                dispatch(clearCart());
+                navigate("/success");
+            },
+            prefill: {
+                name: "",
+                email: user,
+                contact: "9999999999",
+                },
+                notes: {
+                    address: "Razorpay Corporate Office",
+                    },
+                    theme: {
+                    color: "#3399cc",
+                    },
+        }
+        const paymentObject = new window.Razorpay(options);
+        paymentObject.open()
     }
 
     return (
@@ -78,7 +128,8 @@ export default function Cart() {
                 </div>
                 <div className={styles.paymentBtnContainer}>
                 <p>Total Bill:<b> ₹{totalAmount/100}</b></p>
-                <button onClick={handleCheck}>PROCEED TO PAYMENT</button>
+                {/* <button onClick={handleCheck}>PROCEED TO PAYMENT</button> */}
+                <button onClick={()=>handleCheck(totalAmount/100)}>PROCEED TO PAYMENT</button>
                 </div>
             </div>
 
