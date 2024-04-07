@@ -44,6 +44,7 @@
 }
 .cartDetailContainer{
     padding: 2rem;
+    padding-top: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -96,8 +97,8 @@
 }
 .emptyImg{
     width: 400px;
-    height: 200px;
-    
+    height: 170px;
+    object-fit: cover;
 }
 .restaurantNearBtn{
     padding: .5rem 2rem;
