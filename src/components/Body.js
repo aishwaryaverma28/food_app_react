@@ -69,7 +69,7 @@ function Body() {
     <>
       <Slider />
        <SearchCity setCoordinates={setCoordinates} setRestoListUrl={setRestoListUrl} setRestaurantList={setRestaurantList} offset={offset} setOffset={setOffset}  /> 
-      <Filter setRestoListUrl={setRestoListUrl} setRestaurantList={setRestaurantList} coordinates={coordinates} setSortBy={setSortBy} offset={offset} setOffset={setOffset}/>
+      {/* <Filter setRestoListUrl={setRestoListUrl} setRestaurantList={setRestaurantList} coordinates={coordinates} setSortBy={setSortBy} offset={offset} setOffset={setOffset}/> */}
       <div className={styles.cards}>
         {error && <Error error={error} />}
         {restaurantList.map((restaurant, index) => (
