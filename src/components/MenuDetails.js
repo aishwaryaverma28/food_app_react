@@ -231,15 +231,15 @@ function MenuDetails() {
   const [showSuccess, setShowSuccess] = useState(false);
   const [titleObjects, setTitleObjects] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
-  const [title,settitle] = useState("")
+  const [selectedTab, setSelectedTab] = useState(null);
 
   const handleTabClick = (title,itemcards) => {
-    settitle(title)
+    setSelectedTab(title);
+    console.log(title)
     let filterItems = (itemcards || []
     ).filter((item) =>
       item?.card?.info?.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    // console.log("239", itemcards)
     setFilteredItems(filterItems);
   };
 
@@ -248,7 +248,7 @@ function MenuDetails() {
       const regularCards = data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || [];
       const filteredTitleObjects = regularCards.filter(card => card?.card?.card?.title && card?.card?.card?.itemCards && card?.card?.card?.itemCards.length > 0);
       setTitleObjects(filteredTitleObjects);
-      const filterItems = (
+         const filterItems = (
         data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
           ?.card?.itemCards || []
       ).filter((item) =>
@@ -256,7 +256,18 @@ function MenuDetails() {
       );
       setFilteredItems(filterItems);
     }
-  }, [data, searchTerm]);
+  }, [data,searchTerm]);
+
+  useEffect(() => {
+    if (selectedTab && data) {
+      const regularCards = data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || [];
+      const selectedTabData = regularCards.find(card => card?.card?.card?.title === selectedTab);
+      const filterItems = (selectedTabData?.card?.card?.itemCards || []).filter((item) =>
+        item?.card?.info?.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredItems(filterItems);
+    }
+  }, [selectedTab, data, searchTerm]);
   
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
