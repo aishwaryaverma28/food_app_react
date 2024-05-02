@@ -15,7 +15,7 @@ import "./Filter.css"
 function MenuDetails() {
   const { id } = useParams();
   const { data, isPending, error } = useFetch(
-    `http://localhost:3001/api/menu?page-type=REGULAR_MENU&complete-menu=true&lat=19.159014&lng=72.9985686&submitAction=ENTER&restaurantId=${id}`
+    `https://food-app-be-i13l.onrender.com/api/menu?page-type=REGULAR_MENU&complete-menu=true&lat=19.159014&lng=72.9985686&submitAction=ENTER&restaurantId=${id}`
   );
   const restoData = data?.data;
   const [searchTerm, setSearchTerm] = useState("");
@@ -171,10 +171,10 @@ function MenuDetails() {
                   </div>
                 ))}
             </div>
-          </div>
+          </div>          
             <div className='filterContainer'>
               {titleObjects.map((titleObj, index) => (
-                 <div className="h5Container">
+                <div className="h5Container">
                 <h5 key={index} onClick={() => handleTabClick(titleObj.card.card.title,titleObj?.card?.card?.itemCards)}>
                   {titleObj.card.card.title}
                 </h5>
