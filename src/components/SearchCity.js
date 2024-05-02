@@ -42,7 +42,7 @@ function SearchCity({ setCoordinates,setRestoListUrl,setRestaurantList,offset,se
  {showModal && <Modal message="Please enter a valid city name for orders" onClose={() => setShowModal(false)} />}
     <form onSubmit={handleFormSubmit} className={styles.citySearchContainer}>
       <img src={location} alt="location" />
-      <input type="text" value={placeName} onChange={handleInputChange} placeholder="Search for your Location"/>
+      <input type="search" value={placeName} onChange={handleInputChange} placeholder="Search for your Location"/>
       <button type="submit">Search Your Location</button>
     </form>
     </>

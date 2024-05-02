@@ -121,7 +121,6 @@ function MenuDetails() {
 
               <div className="menu-details-banner-down">
                 <div className="menu-details-banner-down-content">
-                  {/* <p><i class="fa-solid fa-star" style={{ color: "white", fontSize: ".8rem", marginRight: ".3rem" }}></i>{restoData?.cards[2]?.card?.card?.info?.avgRating}</p> */}
                   <p
                     className={
                       restoData?.cards[2]?.card?.card?.info?.avgRating > 4 ||

@@ -53,7 +53,7 @@ export default function Header() {
                     
                 </ul>
             </div>
-            <i className="fa-solid fa-bars" onClick={handleClickSidebar} style={{cursor:"pointer"}}></i>
+            {/* <i className="fa-solid fa-bars" onClick={handleClickSidebar} style={{cursor:"pointer"}}></i> */}
 
             <nav className={isOpenSidebar ? 'sidebar_nav_menu active' : 'sidebar_nav_menu'}>
                 <ul className='sidebar_nav_menu_items'>
