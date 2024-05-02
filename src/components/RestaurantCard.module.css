@@ -3,8 +3,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 2rem;
-  margin-left: 6%;
-  margin-right: 6%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .cards a {
@@ -13,7 +13,7 @@
 }
 
 .card {
-  width: 22%;
+  width: 23%;
   margin-bottom: 2rem;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
@@ -34,22 +34,23 @@
 }
 
 .details {
-  padding: 20px;
+  padding: 15px;
+  padding-bottom: 0px;
 }
 
 .title {
-  margin-bottom: 10px;
-  font-size: 18px;
+  /* margin-bottom: 10px; */
+  font-size: 16px;
   font-weight: bold;
 }
 
 .subtitle {
-  margin-bottom: 10px;
-  font-size: 14px;
+  /* margin-bottom: 10px; */
+  font-size: 12px;
 }
 
 .area {
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   font-size: 14px;
   color: #888;
 }

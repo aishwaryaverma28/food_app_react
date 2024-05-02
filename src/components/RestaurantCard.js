@@ -20,9 +20,9 @@ function RestaurantCard(restaurant) {
          
           <h5>{}</h5>
         </div>
-        <div className={styles.info}>
+        {/* <div className={styles.info}>
         <h5 className={styles.infoItem}>{restaurant?.restaurant?.sla?.slaString}</h5>
-          </div>
+          </div> */}
       </div>
     </div>
    
