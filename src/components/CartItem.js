@@ -6,6 +6,7 @@ import foodPlaceholder from '../assets/restaurant.png';
 export default function CartItem({card, quantity, onAdd, onRemove }) {
   
   // const itemImg = cloudinaryImageId ? IMG_BASE_URL + cloudinaryImageId : foodPlaceholder;
+  console.log("99999",card)
   const itemImg = card?.info?.imageId  ? IMG_BASE_URL + card?.info?.imageId : foodPlaceholder;
   return (
     <div className={styles.cartDetails}>

@@ -17,7 +17,7 @@ export default function Cart() {
     const totalAmount = useSelector((store) => store.cart.totalAmount);
     const [loginAlert, setLoginAlert] = useState(false);
     const [cartEmptyAlert,setCartEmptyAlert] = useState(false);
-
+console.log("cart",cartItems)
     const navigate = useNavigate()
 
     const handleClearCart = () => {
