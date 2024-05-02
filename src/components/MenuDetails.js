@@ -172,8 +172,7 @@ function MenuDetails() {
                   </div>
                 ))}
             </div>
-          </div>
-          <div className="user-details--right">
+          </div>          
             <div className='filterContainer'>
               {titleObjects.map((titleObj, index) => (
                 <div className="h5Container">
@@ -183,7 +182,6 @@ function MenuDetails() {
                 </div>
               ))}
             </div>
-          </div>
           <div className="menu-details-search">
             <input
               type="search"
