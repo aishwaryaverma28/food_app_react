@@ -1,6 +1,6 @@
 .filterContainer {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   gap: 10px;
   margin: 2%;
@@ -8,7 +8,7 @@
   height: 8rem;
   overflow-x: auto;
   overflow-y: hidden;
-  /* scrollbar-width: none; */
+  scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
