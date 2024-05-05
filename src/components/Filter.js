@@ -10,7 +10,7 @@ function Filter({ setRestoListUrl, setRestaurantList, coordinates, setSortBy,off
     setSortBy(sortBy);
     setOffset(15)
     setRestoListUrl(
-      `http://localhost:3001/api/restaurants?lat=${coordinates.lat}&lng=${coordinates.lng}&offset=${offset}&sortBy=${sortBy}&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING`
+      `https://food-app-be-i13l.onrender.com/api/restaurants?lat=${coordinates.lat}&lng=${coordinates.lng}&offset=${offset}&sortBy=${sortBy}&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING`
     );
   };
 
