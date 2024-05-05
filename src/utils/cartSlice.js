@@ -18,7 +18,8 @@ const cartSlice = createSlice({
                 state.items.push(newItem);
             }
             state.totalQuantity += 1;
-            state.totalAmount += newItem?.card?.info?.price;
+            // state.totalAmount += newItem?.card?.info?.price;
+            state.totalAmount += newItem?.card?.modifiedPrice;
         },
         removeItem: (state, action) => {
             const itemId = action.payload;
@@ -29,7 +30,8 @@ const cartSlice = createSlice({
                 existingItem.quantity -= 1;
             }
             state.totalQuantity -= 1;
-            state.totalAmount -= existingItem?.card?.info?.price;
+            // state.totalAmount -= existingItem?.card?.info?.price;
+            state.totalAmount -=  existingItem?.card?.modifiedPrice;
         },
         clearCart: (state) => {
             state.items = [];
