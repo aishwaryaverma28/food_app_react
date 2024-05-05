@@ -13,7 +13,8 @@ import SearchCity from './SearchCity';
 function Body() {
   const [coordinates, setCoordinates] = useState({ lat: '10.5270099', lng: '76.214621' });
   // const [restoListUrl, setRestoListUrl] = useState(`${RESTO_LIST_URL}?lat=${coordinates.lat}&lng=${coordinates.lng}&offset=15&sortBy=RELEVANCE&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING`);
-  const [restoListUrl, setRestoListUrl] = useState(`https://food-app-be-i13l.onrender.com/api/restaurants?lat=${coordinates.lat}&lng=${coordinates.lng}&page_type=DESKTOP_WEB_LISTING`);
+  const [restoListUrl, setRestoListUrl] = useState(`http://localhost:3001/api/restaurants?lat=${coordinates.lat}&lng=${coordinates.lng}&page_type=DESKTOP_WEB_LISTING`);
+  // const [restoListUrl, setRestoListUrl] = useState(`https://food-app-be-i13l.onrender.com/api/restaurants?lat=${coordinates.lat}&lng=${coordinates.lng}&page_type=DESKTOP_WEB_LISTING`);
   const { data, isPending, error } = useFetch(restoListUrl);
   const [showShimmer, setShowShimmer] = useState(true);
   const [restaurantList, setRestaurantList] = useState([]);

@@ -24,6 +24,7 @@ function MenuDetails() {
   const [titleObjects, setTitleObjects] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
   const [selectedTab, setSelectedTab] = useState(null);
+ let modifiedPrice;
 
   const handleTabClick = (title,itemcards) => {
     setSelectedTab(title);
@@ -67,7 +68,9 @@ function MenuDetails() {
   };
 
   const dispatch = useDispatch();
-  const addFoodItem = (item) => {
+  const addFoodItem = (item,price) => {
+    item.card["modifiedPrice"] = price;
+    console.log("73",item.card);
     dispatch(addItem(item));
     setAddedItems([...addedItems, item?.card?.info?.id]);
     console.log(addedItems);
@@ -219,7 +222,7 @@ function MenuDetails() {
                   ) : (
                     <button
                       className="menu-details-item-add-btn"
-                      onClick={() => addFoodItem(item)}
+                      onClick={() => addFoodItem(item,price)}
                     >
                       Add
                     </button>
